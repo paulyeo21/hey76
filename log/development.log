@@ -3896,3 +3896,12 @@ Started GET "/assets/2015-nba-draft-5a0434b1c4bde3b8211e80111ec7e5c8f28f24579816
 
 
 Started GET "/assets/favicon-7c27185e584c3b7d44806869e8f88b9b28a429adb484127ff496df93faeb0f08.ico" for ::1 at 2015-08-16 23:15:46 -0700
+
+
+Started GET "/" for ::1 at 2015-08-16 23:31:05 -0700
+Processing by StaticPagesController#search as HTML
+  Rendered static_pages/search.html.erb within layouts/application (256.5ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 500ms (Views: 453.9ms | ActiveRecord: 0.0ms)
