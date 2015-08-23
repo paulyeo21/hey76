@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require custom
 //= require masonry/jquery.masonry
-//= require masonry/jquery.infinitescroll.min
+//= require custom
 //= require_tree .

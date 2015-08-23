@@ -15,6 +15,5 @@
  *= require 'masonry/centered'
  *= require 'masonry/fluid'
  *= require 'masonry/gutters'
- *= require 'masonry/infinitescroll'
  *= require_self
  */
