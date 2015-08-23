@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* universal */
+/** 
+Universal 
+**/
 
 body {
   padding-top: 60px;
@@ -23,29 +25,43 @@ textarea {
   }
 }
 
-/* header */
+/** 
+Header 
+**/
 
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
+header {
 
-  &:hover {
+  #logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 1.7em;
     color: #fff;
-    text-decoration: none;    
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    padding-top: 9px;
+    font-weight: bold;
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;    
+    }
+  }
+
+  #home_button {
+    font-size: 2em;
+    color: white;
+    margin-top: 10px;
   }
 }
 
-/* footer */
+/**
+Footer
+**/
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
+  padding-bottom: 50px;
   border-top: 1px solid #eaeaea;
   color: #777;
 
@@ -72,25 +88,77 @@ footer {
   }
 }
 
-/* search page */
+/**
+Search Page
+**/
 
-img {
-  height: 268px;
-  width: 550;
-  margin-bottom: 20px;
+#search {
+  
+  // Draft 2015 image
+  img {
+    height: 268px;
+    width: 550;
+    margin-bottom: 20px;
+  }
+
+  // Style the search input field.
+  #field {
+    width: 400px; 
+    height: 27px; 
+    line-height: 27px;
+    text-indent: 10px; 
+    font-family: arial, sans-serif; 
+    font-size: 1em; 
+    color: #333; 
+    background: #fff; 
+    border: solid 2px $gray-light; 
+  }
 }
 
-// Style the search input field.
+/**
+Mosaic page
+**/
 
-#field {
-  width: 400px; 
-  height: 27px; 
-  line-height: 27px;
-  text-indent: 10px; 
-  font-family: arial, sans-serif; 
-  font-size: 1em; 
-  color: #333; 
-  background: #fff; 
-  border: solid 2px $gray-light; 
+#mosaic {
+
+  // Style header
+  #header {
+
+    // Draftee name
+    #draftee_name {
+      float: left;
+      text-align: left;
+    }
+    
+    // Social media links
+    #social_media_icons {
+      float: right;
+      text-align: right;
+    }
+  }
+
+  // Main container
+  #masonry-container {
+    width: 960px;
+    margin: 0 auto;
+    // padding: 5px;
+    clear: both;
+    // border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    // Different social media different size boxes
+    .news {
+      width: 280px;
+    }
+
+    .tweet {
+      width: 180px;
+    }
+
+    .insta {
+      width: 380px;
+    }
+  }
 }
-

@@ -1,1 +1,67 @@
-<h1>Mosaic Page</h1>
+<div id="mosaic">
+
+	<div id="header">
+		<h1 id="draftee_name">Draftee Name</h1>
+		<span id="social_media_icons">
+			<%= link_to image_tag("social_media_icons/facebook.png", alt: "Facebook"), mosaic_path %>
+			<%= link_to image_tag("social_media_icons/instagram.png", alt: "Instagram"), mosaic_path %>
+			<%= link_to image_tag("social_media_icons/twitter.png", alt: "Twitter"), mosaic_path %>
+		</span>
+	</div>
+
+	<div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry">
+
+		<div class="box">
+			<img src="/assets/food/food1.jpeg">
+		</div>
+		     
+		<div class="box">
+			<img src="/assets/food/food2.jpeg">
+		</div>
+		     
+		<div class="box">
+			<img src="/assets/food/food3.jpeg">
+		</div>
+
+		<div class="box">
+			<img src="/assets/food/food4.jpeg">
+		</div>
+
+		<div class="box">
+			<img src="/assets/food/food5.jpeg">
+		</div>
+
+		<div class="box">
+			<img src="/assets/food/food6.jpeg">
+		</div>
+
+		<div class="box">
+			<img src="/assets/food/food7.jpeg">
+		</div>
+
+		<div class="box">
+			<img src="/assets/food/food8.jpeg">
+		</div>
+
+		<div class="box news">
+		  <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
+		  <p>Vestibulum volutpat, lacus a ultrices sagittis,</p>
+		  <ul>
+		    <li>Lacus a ultrices sagittis</li>
+		    <li>Democratis</li>
+		    <li>Plummus</li>
+		  </ul>
+		</div>
+
+	  <div class="box tweet">
+	    <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+	  </div>
+
+    <div class="box insta">
+	    <p>
+	      <a href="http://www.flickr.com/photos/nemoorange/3319714470/" title="Whitlow's on Wilson by nemoorange, on Flickr"><img src="http://farm4.static.flickr.com/3008/3319714470_c05a5cb5a8_m.jpg" alt="Whitlow's on Wilson" /></a>
+	    </p>
+	  </div>
+
+	</div>
+</div>
