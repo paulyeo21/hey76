@@ -141,61 +141,34 @@ Mosaic page
   #masonry-container {
     width: 960px;
     margin: 0 auto;
-    // padding: 5px;
     clear: both;
-    // border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    padding-top: 10px;
+
+    .box {
+
+      // Remove margins and borders
+      margin: 5 !important;
+      padding: 0 0 0 0 !important;
+
+      img {
+        width: 240px;
+      }
+    }
 
     // Different social media different size boxes
     .news {
-      width: 280px;
+      width: 240px;
     }
 
     .tweet {
-      width: 180px;
+      width: 360px;
     }
 
     .insta {
-      width: 380px;
+      width: 240px;
     }
   }
 }
-
-/*Media Queries*/
-// @media only screen and (max-width : 1199px),
-// only screen and (max-device-width : 1199px){
-//     #container {
-//         width: 1000px;
-//     }
-// }
- 
- 
-// @media only screen and (max-width : 999px),
-// only screen and (max-device-width : 999px){
-//     #container {
-//         width: 800px;
-//     }
-// }
- 
-// @media only screen and (max-width : 799px),
-// only screen and (max-device-width : 799px){
-//     #container {
-//         width: 600px;
-//     }
-// }
- 
-// @media only screen and (max-width : 599px),
-// only screen and (max-device-width : 599px){
-//     #container {
-//         width: 400px;
-//     }
-// }
- 
-// @media only screen and (max-width : 399px),
-// only screen and (max-device-width : 399px){
-//     #container {
-//         width: 200px;
-//     }
-// }
