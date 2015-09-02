@@ -1,0 +1,11 @@
+
+<h1>Draft Candidates</h1>
+<% @draftees.each do |draftee| %>
+  <p>
+    <%= draftee.name %>
+    @<%= draftee.twitter %>
+    <%= draftee.instagram %>
+  </p>
+<% end %>
+
+<%= link_to "+ New candidate", 'draftees/new' %>

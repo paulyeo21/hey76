@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20150831224639) do
 
   create_table "draftees", force: :cascade do |t|
     t.string   "name"
+    t.string   "twitter"
+    t.string   "instagram"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

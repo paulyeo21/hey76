@@ -3,7 +3,7 @@ require 'test_helper'
 class DrafteeTest < ActiveSupport::TestCase
 
 	def setup
-		@draftee = Draftee.new(name: "Tyus Jones")
+		@draftee = Draftee.new(name: "tyus jones")
 	end
 
 	test "should be valid" do 
