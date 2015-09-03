@@ -1,9 +1,9 @@
 class Draftee < ActiveRecord::Base
-	draft_candidates = ["Tyus Jones", "Jahlil Okafor", "Frank Kaminsky"]
+	# draft_candidates = ["Tyus Jones", "Jahlil Okafor", "Frank Kaminsky"]
 
 	before_validation {self.name = capitalize_name(self.name)}
 	validates :name, presence: true, length: {maximum: 50}, 
-									 inclusion: {in: draft_candidates},
+									 # inclusion: {in: draft_candidates},
 									 uniqueness: {case_sensitive: false}
 
   VALID_TWITTER_INSTAGRAM_HANDLE_REGEX = /\A@?[\w]*\z/
