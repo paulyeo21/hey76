@@ -1,12 +1,11 @@
 
 <div id="search" class= "center jumbotron" style="background: transparent !important">
   <%= image_tag("2015-nba-draft.jpg", :alt => "2015 NBA Draft") %>
-  <%= form_tag(mosaic_path, method: "post") do %>
+  <%= form_tag(mosaic_path, method: "get") do %>
 
 		<%= text_field_tag "draftee_name", nil, placeholder: "Search" %>   
- 		<!-- <input id="field" name="draftee_name" type="text" placeholder="Search" /> -->
 		
 		<!-- Submit on return key press -->
-    <div onKeyPress="return checkSubmit(event)"></div>
+    <!-- <div onKeyPress="return checkSubmit(event)"></div> -->
   <% end %>
 </div> 
