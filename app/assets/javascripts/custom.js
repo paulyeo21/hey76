@@ -58,10 +58,12 @@ $(function() {
     hint: true,
     highlight: true,
     minLenght: 1
-  },
-  {
+  },{
     name: 'draft_candidates',
     source: substringMatcher(draft_candidates)
+  })
+  .on('typeahead:selected', function(e){
+    e.target.form.submit();
   });
 
 });

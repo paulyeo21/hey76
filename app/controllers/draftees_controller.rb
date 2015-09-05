@@ -20,7 +20,7 @@ class DrafteesController < ApplicationController
     @suggestions = Draftee.select(:name)
     @suggestions_array = []
     @suggestions.each {|draftee| @suggestions_array.push(draftee["name"])}
-    render json: {suggestions: @suggestions_array} if @suggestions.present?
+    render json: {suggestions: @suggestions_array}
   end
 
   def index
