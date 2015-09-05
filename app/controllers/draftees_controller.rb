@@ -42,7 +42,7 @@ class DrafteesController < ApplicationController
   def update
     @draftee = Draftee.find(params[:id])
     if @draftee.update_attributes(draftee_params)
-    # Handle a successful update.
+      redirect_to draftee_url(@draftee)
     else
       render 'edit'
     end
