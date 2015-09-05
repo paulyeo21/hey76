@@ -1,21 +1,26 @@
  
-<!-- <h1>Draft Candidates</h1> -->
-<%# @draftees.each do |draftee| %>
-  <!-- <p> -->
-    <%#= draftee.name %>
-    <!-- @<%#= draftee.twitter %> -->
-    <%#= draftee.instagram %>
-  <!-- </p> -->
-<%# end %>
+<h1>Draft Candidates</h1>
 
-<%#= link_to "+ New candidate", 'draftees/new' %>
-
-
-<div id="search" class= "center jumbotron" style="background: transparent !important">
-  <%= image_tag("2015-nba-draft.jpg", :alt => "2015 NBA Draft") %>
-  <%= form_tag(search_path) do %>
-
-    <%= text_field_tag :name, nil, placeholder: "Search" %>
-
+<table border= "1" >
+  <col width="120">
+  <col width="120">
+  <col width="120">
+  <col width="120">
+  <col width="120">
+  <tr>
+    <th>Draft Candidate</th>
+    <th>Twitter</th>
+    <th>Instagram</th>
+  </tr>
+  <% @draftees.each do |draftee| %>
+  <tr>
+    <th><%= link_to draftee.name, draftee_url(draftee) %></th>
+    <th>@<%= draftee.twitter %></th>
+    <th><%= draftee.instagram %></th>
+    <th><%= link_to "Edit", edit_draftee_path(draftee) %></th>
+    <th><%= link_to "Delete", draftee, method: :delete, data: { confirm: "You sure?" } %></th>
+  </tr>
   <% end %>
-</div> 
+</table>
+
+<%= link_to "+ New candidate", 'draftees/new' %>
