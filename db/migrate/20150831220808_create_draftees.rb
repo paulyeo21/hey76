@@ -7,5 +7,6 @@ class CreateDraftees < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    # add_column :draftees, :slug, :string, unique: true
   end
 end
