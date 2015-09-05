@@ -2,11 +2,11 @@
 <h1>Draft Candidates</h1>
 
 <table border= "1" >
-  <col width="120">
-  <col width="120">
-  <col width="120">
-  <col width="120">
-  <col width="120">
+  <col width="200">
+  <col width="200">
+  <col width="200">
+  <col width="200">
+  <col width="200">
   <tr>
     <th>Draft Candidate</th>
     <th>Twitter</th>
@@ -15,7 +15,7 @@
   <% @draftees.each do |draftee| %>
   <tr>
     <th><%= link_to draftee.name, draftee_url(draftee) %></th>
-    <th>@<%= draftee.twitter %></th>
+    <th><%= draftee.twitter %></th>
     <th><%= draftee.instagram %></th>
     <th><%= link_to "Edit", edit_draftee_path(draftee) %></th>
     <th><%= link_to "Delete", draftee, method: :delete, data: { confirm: "You sure?" } %></th>

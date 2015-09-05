@@ -1,0 +1,2 @@
+class InsertsController < ApplicationController
+end

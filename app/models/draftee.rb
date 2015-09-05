@@ -1,4 +1,5 @@
 class Draftee < ActiveRecord::Base
+  has_many :tweets, dependent: :destroy
 
 	before_validation {self.name = capitalize_name(self.name)}
 	validates :name, presence: true, length: {maximum: 50}, 
