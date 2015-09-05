@@ -1,6 +1,15 @@
 class StaticPagesController < ApplicationController
 
   def search
+    @draftee = Draftee.where(name: params[:name])
+    if @draftee.present?
+      redirect_to draftee_url(@draftee)
+    else
+      render :home
+    end
+  end
+
+  def home
   end
 
   def mosaic

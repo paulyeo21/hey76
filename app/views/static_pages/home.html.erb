@@ -1,0 +1,10 @@
+
+<div id="search" class= "center jumbotron" style="background: transparent !important">
+  <%= image_tag("2015-nba-draft.jpg", :alt => "2015 NBA Draft") %>
+  <%= form_tag(search_path) do %>
+
+    <%= text_field_tag :name, nil, placeholder: "Search" %>
+    <%= submit_tag "search", id: "search" %>
+
+  <% end %>
+</div> 

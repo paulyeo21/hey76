@@ -34,14 +34,6 @@ $(function() {
     });
   });
 
-  function checkSubmit(e)
-  {
-     if(e && e.keyCode == 13)
-     {
-        document.forms[0].submit();
-     }
-  }
-
   var base_url = window.location.origin;
   var draft_candidates;
 
@@ -62,7 +54,7 @@ $(function() {
   });
 
 
-  $('#search form input#draftee_name').typeahead({
+  $('#search form input#name').typeahead({
     hint: true,
     highlight: true,
     minLenght: 1

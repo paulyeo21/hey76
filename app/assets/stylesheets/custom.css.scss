@@ -113,6 +113,11 @@ Search Page
   //   background: #fff; 
   //   border: solid 2px $gray-light; 
   // }
+
+  // Hide submit button
+  form input#search {
+    visibility: hidden;
+  }
 }
 
 // Twitter typeahead css
@@ -127,6 +132,7 @@ Search Page
     border: 2px solid #ccc;
     border-radius: 8px;
     outline: none;
+    font-family: arial, sans-serif;
 }
 
 .tt-input { /* UPDATE: newer versions use tt-input instead of tt-query */
