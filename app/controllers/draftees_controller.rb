@@ -24,7 +24,11 @@ class DrafteesController < ApplicationController
   end
 
   def index
-    @draftees = Draftee.all
+  end
+
+  def search
+    @draftee = Draftee.find_by_name(params[:name])
+    redirect_to draftee_url(@draftee)
   end
 
   private

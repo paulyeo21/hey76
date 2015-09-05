@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root            'static_pages#home'
+  root            'draftees#index'
   get 'mosaic' => 'static_pages#mosaic'
   post 'search' => 'static_pages#search'
 
