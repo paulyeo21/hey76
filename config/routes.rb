@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  root            'static_pages#home'
+  root            'draftees#home'
   get 'mosaic' => 'static_pages#mosaic'
-  post 'search' => 'static_pages#search'
-
+  post 'search' => 'draftees#search'
   get 'suggestions.json' => 'draftees#json'
   resources :draftees
 
