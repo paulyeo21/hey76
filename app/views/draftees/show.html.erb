@@ -2,7 +2,7 @@
 <div id="draftee_page">
   <h1>
     <%= @draftee.name %>
-    <%= link_to twitter(@draftee.name), "https://twitter.com/" + @draftee.twitter %>
-    <%= link_to instagram(@draftee.name), "https://instagram.com/" + @draftee.instagram %>
+    <%= image_link_to_media("twitter", @draftee.twitter) %>
+    <%= image_link_to_media("instagram", @draftee.instagram) %>
   </h1>
 </div>
