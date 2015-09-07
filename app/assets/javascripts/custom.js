@@ -23,17 +23,6 @@ var substringMatcher = function(strs) {
 
 $(function() {
 
-  var $container = $('#masonry-container');
- 
-  $container.imagesLoaded(function(){
-    $container.masonry({
-      itemSelector : '.box',
-      isFitWidth: true
-      // isRTL: true
-      // gutterWidth: 0
-    });
-  });
-
   var base_url = window.location.origin;
   var draft_candidates;
 
@@ -45,12 +34,12 @@ $(function() {
 
   // deprecate synchronous ajax call BUT works
   $.ajax({
-    url: base_url + "/suggestions.json",
+    url: base_url + "/draftees.json",
     async: false,
     dataType: "json"
   })
   .done(function(data) {
-    draft_candidates = data.suggestions;
+    draft_candidates = data;
   });
 
 
@@ -66,4 +55,15 @@ $(function() {
     e.target.form.submit();
   });
 
+});
+
+
+var $container = $('#masonry-container');
+
+//https://github.com/desandro/masonry/issues/35
+// $container.imagesLoaded(function(){
+$(window).load(function(){
+  $container.masonry({
+    itemSelector : '.box'
+  });
 });

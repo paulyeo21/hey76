@@ -7,8 +7,10 @@
   </h1>
 
   <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry">
+    <% @inserts.each do |insert| %>
     <div class="box">
-      <%= image_tag("food/food1.jpg", :alt => "food1") %>
+      <%= raw(insert.content) %>
     </div>
+    <% end %>
   </div>
 </div>

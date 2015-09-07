@@ -171,25 +171,39 @@ Search Page
 }
 
 /**
-Mosaic page
+Mixins, variables, etc.
 **/
 
-#mosaic {
+$gray-medium-light: #eaeaea;
 
-  // Style header
-  #header {
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 
-    // Draftee name
-    #draftee_name {
-      float: left;
-      text-align: left;
-    }
-    
-    // Social media links
-    #social_media_icons {
-      float: right;
-      text-align: right;
-    }
+/**
+Miscellaneous
+**/
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+/**
+Draftee Individual Page
+**/
+
+#draftee_page {
+  font-family: arial, sans-serif;
+
+  h1 {
+    font-weight: 900;
+    text-align: center;
   }
 
   // Main container
@@ -225,43 +239,6 @@ Mosaic page
     .insta {
       width: 240px;
     }
-  }
-}
-
-/**
-Mixins, variables, etc.
-**/
-
-$gray-medium-light: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
-/**
-Miscellaneous
-**/
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
-/**
-Draftee Individual Page
-**/
-
-#draftee_page {
-  font-family: arial, sans-serif;
-
-  h1 {
-    font-weight: 900;
-    text-align: center;
   }
 }
 

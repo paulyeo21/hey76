@@ -2,3 +2,4 @@ log/
 tmp/
 cheatsheet.md
 .ruby-version
+config/secrets.yml

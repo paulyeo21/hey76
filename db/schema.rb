@@ -28,22 +28,13 @@ ActiveRecord::Schema.define(version: 20150905105945) do
     t.integer  "draftee_id"
     t.datetime "date"
     t.string   "type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "content_id", limit: 8
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "inserts", ["date"], name: "index_inserts_on_date"
   add_index "inserts", ["draftee_id", "date"], name: "index_inserts_on_draftee_id_and_date"
   add_index "inserts", ["draftee_id"], name: "index_inserts_on_draftee_id"
-
-  create_table "tweets", force: :cascade do |t|
-    t.text     "content"
-    t.integer  "draftee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "tweets", ["draftee_id", "created_at"], name: "index_tweets_on_draftee_id_and_created_at"
-  add_index "tweets", ["draftee_id"], name: "index_tweets_on_draftee_id"
 
 end
