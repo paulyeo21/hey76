@@ -23,4 +23,4 @@ Insert(id: integer, content: text, draftee_id: integer, date: datetime, type_of:
 ```
 
 ## Deployment
-hey76 is deployed using Heroku. Heroku also provides a scheduler that updates the three data sources.
+hey76 is deployed on Heroku. Heroku provides a scheduler that updates the three data sources referenced above.
