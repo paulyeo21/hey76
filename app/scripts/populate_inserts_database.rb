@@ -51,20 +51,20 @@ class PopulateInsertsDatabase
         # http://stackoverflow.com/questions/11796349/instagram-how-to-get-my-user-id-from-username
         begin
           draftee_instagram = JSON.parse(open('https://api.instagram.com/v1/users/search?q=' + draftee[:instagram] + '&client_id=' + Rails.application.secrets.instagram_client_id).read)['data'][0]
-        rescue OpenURI::HTTPError => ex
-          puts "Bad Request"
-        end
-        draftee_instagram_id = draftee_instagram['id']
+          draftee_instagram_id = draftee_instagram['id']
 
-        # 2.
-        # http://stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user
-        JSON.parse(open('https://api.instagram.com/v1/users/' + draftee_instagram_id + '/media/recent/?client_id=' + Rails.application.secrets.instagram_client_id).read)['data'].each do |instagram|
-          unless Insert.exists?(content_id: instagram['id'])
-            # 3.
-            # https://instagram.com/developer/embedding/#media_redirect
-            embedded_instagram = JSON.parse(open('https://api.instagram.com/oembed?url=' + instagram['link']).read)['html']
-            draftee.inserts.create!(content: embedded_instagram, url: instagram['link'], date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
+          # 2.
+          # http://stackoverflow.com/questions/17373886/how-can-i-get-a-users-media-from-instagram-without-authenticating-as-a-user
+          JSON.parse(open('https://api.instagram.com/v1/users/' + draftee_instagram_id + '/media/recent/?client_id=' + Rails.application.secrets.instagram_client_id).read)['data'].each do |instagram|
+            unless Insert.exists?(content_id: instagram['id'])
+              # 3.
+              # https://instagram.com/developer/embedding/#media_redirect
+              embedded_instagram = JSON.parse(open('https://api.instagram.com/oembed?url=' + instagram['link']).read)['html']
+              draftee.inserts.create!(content: embedded_instagram, url: instagram['link'], date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
+            end
           end
+        rescue OpenURI::HTTPError => ex
+          puts "Bad Request for draftee: " + draftee[:name]
         end
       end
 
