@@ -64,6 +64,7 @@ var $container = $('#masonry-container');
 // $container.imagesLoaded(function(){
 $(window).load(function(){
   $container.masonry({
-    itemSelector : '.box'
-  });
+    itemSelector : '.box',
+    columnWidth: 360
+   });
 });
