@@ -218,13 +218,11 @@ Draftee Individual Page
     // padding-top: 10px;
 
     .box {
-
-      // Remove margins and borders
-      margin: 5 !important;
-      padding: 0 0 0 0 !important;
+      background-color: white !important;
       width: 300px;
       float: left;
-      display: block;
+      border-width: 2px;
+      border-style: solid;
     }
   }
 }
