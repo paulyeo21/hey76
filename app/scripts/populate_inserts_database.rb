@@ -49,7 +49,11 @@ class PopulateInsertsDatabase
       if draftee[:instagram]
         # 1.
         # http://stackoverflow.com/questions/11796349/instagram-how-to-get-my-user-id-from-username
-        draftee_instagram = JSON.parse(open('https://api.instagram.com/v1/users/search?q=' + draftee[:instagram] + '&client_id=' + Rails.application.secrets.instagram_client_id).read)['data'][0]
+        begin
+          draftee_instagram = JSON.parse(open('https://api.instagram.com/v1/users/search?q=' + draftee[:instagram] + '&client_id=' + Rails.application.secrets.instagram_client_id).read)['data'][0]
+        rescue OpenURI::HTTPError => ex
+          puts "Bad Request"
+        end
         draftee_instagram_id = draftee_instagram['id']
 
         # 2.
