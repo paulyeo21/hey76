@@ -228,11 +228,15 @@ Draftee Individual Page
       // border-style: solid;
     }
     .news { 
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
       font-family: arial, sans-serif;
       border-width: 1px;
       border-style: solid;
       border-color: #d3d3d3;
+      height: 100px;
       a {
         font-size: 15px;
         text-decoration: none;
