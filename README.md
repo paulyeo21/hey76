@@ -8,7 +8,7 @@ draft candidates = ['Karl-Anthony Towns', 'D'Angelo Russell', 'Jahlil Okafor', '
 ```
 
 ## Architecture
-hey76 is seeded with draft candidate names and their instagram and twitter handles. The lib/tasks/scheduler.rake file populates the inserts database with the most recent news articles, twitter tweets, and instagram posts. All of that data is presented in a Pinterest-style interface on each draft candidates individual page, when the user searches for his name.
+hey76 is built with draft candidate names and their instagram and twitter handles. The lib/tasks/scheduler.rake file populates the inserts database with the most recent news articles, twitter tweets, and instagram posts. All of that data is presented in a Pinterest-style interface on each draft candidates individual page, when the user searches for his name.
 
 ## Models
 Draft candidates
