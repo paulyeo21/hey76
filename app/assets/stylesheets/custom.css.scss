@@ -171,64 +171,6 @@ Search Page
 }
 
 /**
-Mosaic page
-**/
-
-#mosaic {
-
-  // Style header
-  #header {
-
-    // Draftee name
-    #draftee_name {
-      float: left;
-      text-align: left;
-    }
-    
-    // Social media links
-    #social_media_icons {
-      float: right;
-      text-align: right;
-    }
-  }
-
-  // Main container
-  #masonry-container {
-    width: 960px;
-    margin: 0 auto;
-    clear: both;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding-top: 10px;
-
-    .box {
-
-      // Remove margins and borders
-      margin: 5 !important;
-      padding: 0 0 0 0 !important;
-
-      img {
-        width: 240px;
-      }
-    }
-
-    // Different social media different size boxes
-    .news {
-      width: 240px;
-    }
-
-    .tweet {
-      width: 360px;
-    }
-
-    .insta {
-      width: 240px;
-    }
-  }
-}
-
-/**
 Mixins, variables, etc.
 **/
 
@@ -262,6 +204,28 @@ Draftee Individual Page
   h1 {
     font-weight: 900;
     text-align: center;
+  }
+
+  // Main container
+  #masonry-container {
+    padding-top: 15px;
+    // width: 960px;
+    // margin: 0 auto;
+    // clear: both;
+    // -webkit-border-radius: 5px;
+    // -moz-border-radius: 5px;
+    // border-radius: 5px;
+    // padding-top: 10px;
+
+    .box {
+
+      // Remove margins and borders
+      margin: 5 !important;
+      padding: 0 0 0 0 !important;
+      width: 300px;
+      float: left;
+      display: block;
+    }
   }
 }
 

@@ -5,6 +5,8 @@ gem 'rails', '4.2.2'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'masonry-rails'
 # gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+gem 'twitter'
+gem 'instagram'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

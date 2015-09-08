@@ -5,6 +5,7 @@ class DrafteesController < ApplicationController
 
   def show
     @draftee = Draftee.find(params[:id])
+    @inserts = Insert.where(draftee_id: params[:id])
   end
 
   def create
@@ -16,15 +17,16 @@ class DrafteesController < ApplicationController
     end
   end
 
-  def json
+  def index
+    @draftees = Draftee.all
     @suggestions = Draftee.select(:name)
     @suggestions_array = []
     @suggestions.each {|draftee| @suggestions_array.push(draftee["name"])}
-    render json: {suggestions: @suggestions_array}
-  end
 
-  def index
-    @draftees = Draftee.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @suggestions_array }
+    end
   end
 
   def search
