@@ -179,6 +179,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    searchbing (0.2.4)
     shellany (0.0.1)
     simple_oauth (0.3.1)
     slop (3.6.0)
@@ -236,6 +237,7 @@ DEPENDENCIES
   rails_12factor (= 0.0.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  searchbing
   spring
   sqlite3
   turbolinks

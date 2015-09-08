@@ -6,12 +6,16 @@ class PopulateInsertsDatabase
 
   def self.find_new_inserts
 
+    # Twitter configuration
     $twitter = Twitter::REST::Client.new do |config|
       config.consumer_key = Rails.application.secrets.twitter_consumer_key
       config.consumer_secret = Rails.application.secrets.twitter_consumer_secret
       config.access_token = Rails.application.secrets.twitter_access_token
       config.access_token_secret = Rails.application.secrets.twitter_access_token_secret
     end
+
+    # Bing search configuration
+    bing_news = Bing.new(Rails.application.secrets.bing_client_id, 20, 'News')
     
     # Get all draftee handles
     @draftees = Draftee.all
@@ -54,7 +58,13 @@ class PopulateInsertsDatabase
           embedded_instagram = JSON.parse(open('https://api.instagram.com/oembed?url=' + instagram['link']).read)['html']
           draftee.inserts.create!(content: embedded_instagram, date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
         end
-      end  
+      end
+
+      # Bing Search API:
+      # 1.
+      # 2.
+      draftee_results = bing_news.search(draftee[:name])
+
     end
   end
 

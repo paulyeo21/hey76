@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'search' => 'draftees#search'
   get 'suggestions.json' => 'draftees#json'
   resources :draftees
-  resources :inserts, only: [:create, :destroy]
+  resources :inserts
+  # , only: [:create, :destroy]
 
 end
