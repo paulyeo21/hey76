@@ -4,7 +4,7 @@ require 'date'
 
 class PopulateInsertsDatabase 
 
-  def self.populate_with_new_inserts
+  def self.find_new_inserts
 
     $twitter = Twitter::REST::Client.new do |config|
       config.consumer_key = Rails.application.secrets.twitter_consumer_key
@@ -28,10 +28,10 @@ class PopulateInsertsDatabase
       @tweets.each do |tweet|
 
         # only add to db if tweet does not exist
-        unless Insert.exists?(content_id: tweet[:id])
+        unless Insert.exists?(content_id: tweet.id)
           
           # 2.
-          draftee.inserts.create!(content: $twitter.oembed(tweet[:id]).html, date: tweet[:created_at], content_id: tweet[:id], type_of: "twitter")
+          draftee.inserts.create!(content: $twitter.oembed(tweet.id).html, date: tweet.created_at, content_id: tweet.id, type_of: "twitter")
         end
       end
 
@@ -59,5 +59,3 @@ class PopulateInsertsDatabase
   end
 
 end
-
-PopulateInsertsDatabase.populate_with_new_inserts
