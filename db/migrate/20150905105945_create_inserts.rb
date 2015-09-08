@@ -4,8 +4,8 @@ class CreateInserts < ActiveRecord::Migration
       t.text :content
       t.references :draftee, index: true, foreign_key: true
       t.datetime :date, index: true
-      t.string :type
-      t.integer :content_id, :limit => 8
+      t.string :type_of
+      t.integer :content_id, :limit => 16
 
       t.timestamps null: false
     end

@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20150905105945) do
     t.text     "content"
     t.integer  "draftee_id"
     t.datetime "date"
-    t.string   "type"
-    t.integer  "content_id", limit: 8
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.string   "type_of"
+    t.integer  "content_id", limit: 16
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   add_index "inserts", ["date"], name: "index_inserts_on_date"
