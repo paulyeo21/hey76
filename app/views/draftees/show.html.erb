@@ -7,7 +7,8 @@
   </h1>
 
   <% if @inserts %>
-    <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry center jumbotron" style="background: transparent !important">
+  <div class="center jumbotron" style="background: transparent !important">
+    <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry">
       <% @inserts.each do |insert| %>
         <!-- if bing search -->
         <% if insert.type_of == 'news' %>
@@ -26,5 +27,6 @@
         <% end %>
       <% end %>
     </div>
+  </div>
   <% end %>
 </div>
