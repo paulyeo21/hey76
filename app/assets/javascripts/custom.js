@@ -60,6 +60,7 @@ $(function() {
 //https://github.com/desandro/masonry/issues/35
 // $container.imagesLoaded(function(){
 var $container = $('#masonry-container');
+
 $(window).load(function(){
   $container.masonry({
     itemSelector : '.box',
