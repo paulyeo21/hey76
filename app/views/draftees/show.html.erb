@@ -6,11 +6,13 @@
     <%= image_link_to_media("instagram", @draftee.instagram) %>
   </h1>
 
-  <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry">
-    <% @inserts.each do |insert| %>
-    <div class="box">
-      <%= raw(insert.content) %>
+  <% if @inserts %>
+    <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry"
+      <% @inserts.each do |insert| %>
+      <div class="box">
+        <%= raw(insert.content) %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
