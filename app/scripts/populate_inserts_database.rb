@@ -35,7 +35,7 @@ class PopulateInsertsDatabase
         unless Insert.exists?(content_id: tweet.id)
           
           # 2.
-          draftee.inserts.create!(content: $twitter.oembed(tweet.id).html, date: tweet.created_at, content_id: tweet.id, type_of: "twitter")
+          draftee.inserts.create!(content: $twitter.oembed(tweet.id).html, url: tweet.url, date: tweet.created_at, content_id: tweet.id, type_of: "twitter")
         end
       end
 
@@ -56,15 +56,18 @@ class PopulateInsertsDatabase
           # 3.
           # https://instagram.com/developer/embedding/#media_redirect
           embedded_instagram = JSON.parse(open('https://api.instagram.com/oembed?url=' + instagram['link']).read)['html']
-          draftee.inserts.create!(content: embedded_instagram, date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
+          draftee.inserts.create!(content: embedded_instagram, url: instagram['link'], date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
         end
       end
 
       # Bing Search API:
-      # 1.
-      # 2.
-      draftee_results = bing_news.search(draftee[:name])
-
+      # 1. search news articles by draftee name
+      # 2. store news article titles and content to db unless content id exists
+      bing_news.search(draftee[:name])[0][:News].each do |news|
+        unless Insert.exists?(content_id: news[:ID])
+          draftee.inserts.create!(content: news[:Title], url: news[:Url], date: news[:Date], content_id: news[:ID], type_of: "news")
+        end
+      end
     end
   end
 

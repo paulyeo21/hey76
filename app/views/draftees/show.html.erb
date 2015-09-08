@@ -9,9 +9,18 @@
   <% if @inserts %>
     <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry">
       <% @inserts.each do |insert| %>
-      <div class="box">
-        <%= raw(insert.content) %>
-      </div>
+        <!-- if bing search -->
+        <% if insert.type_of == 'news' %>
+          <div class="box">
+            <%= link_to insert.content, insert.url %>
+          </div>
+        <!-- if twitter/instagram -->
+        <% else %>      
+          <div class="box">
+            <%= raw(insert.content) %>
+          </div>
+        <!-- end if else -->
+        <% end %>
       <% end %>
     </div>
   <% end %>

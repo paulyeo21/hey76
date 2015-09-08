@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150905105945) do
     t.datetime "date"
     t.string   "type_of"
     t.string   "content_id"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

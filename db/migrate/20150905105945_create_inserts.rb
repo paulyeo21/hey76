@@ -6,6 +6,7 @@ class CreateInserts < ActiveRecord::Migration
       t.datetime :date, index: true
       t.string :type_of
       t.string :content_id
+      t.string :url
 
       t.timestamps null: false
     end
