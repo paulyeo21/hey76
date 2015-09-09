@@ -6,7 +6,7 @@ class Draftee < ActiveRecord::Base
 									 # inclusion: {in: draft_candidates},
 									 uniqueness: {case_sensitive: false}
 
-  VALID_TWITTER_INSTAGRAM_HANDLE_REGEX = /\A@?[\w]*\z/
+  VALID_TWITTER_INSTAGRAM_HANDLE_REGEX = /\A@?[\w.]*\z/
   before_validation {self.twitter = remove_at_symbol(self.twitter)}
   validates :twitter, length: {maximum: 15},
                       format: {with: VALID_TWITTER_INSTAGRAM_HANDLE_REGEX}
