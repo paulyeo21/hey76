@@ -28,16 +28,23 @@ class PopulateInsertsDatabase
       # 2. store each embedded tweet from user timeline to db
 
       if draftee[:twitter]
-        # 1.
-        @tweets = $twitter.user_timeline(draftee[:twitter])
-        @tweets.each do |tweet|
+        # Catch twitter rate limit
+        begin
+          # 1.
+          @tweets = $twitter.user_timeline(draftee[:twitter])
+          @tweets.each do |tweet|
 
-          # only add to db if tweet does not exist
-          unless Insert.exists?(content_id: tweet.id)
-            
-            # 2.
-            draftee.inserts.create!(content: $twitter.oembed(tweet.id).html, url: tweet.url, date: tweet.created_at, content_id: tweet.id, type_of: "twitter")
+            # only add to db if tweet does not exist
+            unless Insert.exists?(content_id: tweet.id)
+              
+              # 2.
+              draftee.inserts.create!(content: $twitter.oembed(tweet.id).html, url: tweet.url, date: tweet.created_at, content_id: tweet.id, type_of: "twitter")
+            end
           end
+        # Retry after 15 minutes
+        rescue Twitter::Error::TooManyRequests => error
+          sleep error.rate_limit.reset_in + 1
+          retry
         end
       end
 
@@ -72,7 +79,7 @@ class PopulateInsertsDatabase
       # 1. search news articles by draftee name
       # 2. store news article titles and content to db unless content id exists
       bing_news.search(draftee[:name])[0][:News].each do |news|
-        unless Insert.exists?(content_id: news[:ID])
+        unless Insert.exists?(content: news[:Title])
           draftee.inserts.create!(content: news[:Title], url: news[:Url], date: news[:Date], content_id: news[:ID], type_of: "news")
         end
       end

@@ -57,15 +57,15 @@ $(function() {
 
 });
 
-var $container = $('#masonry-container');
+// var $container = $('#masonry-container');
 
-//https://github.com/desandro/masonry/issues/35
-// $container.imagesLoaded(function(){
+// //https://github.com/desandro/masonry/issues/35
+// // $container.imagesLoaded(function(){
 
-$(window).load(function(){
-  $container.masonry({
-    itemSelector : '.box',
-    columnWidth: 325,
-    isFitWidth: true
-  });
-});
+// $(window).load(function(){
+//   $container.masonry({
+//     itemSelector : '.box',
+//     columnWidth: 325,
+//     isFitWidth: true
+//   });
+// });

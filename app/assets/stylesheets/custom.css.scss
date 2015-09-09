@@ -59,11 +59,12 @@ Footer
 **/
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  padding-bottom: 50px;
+  // margin-top: 45px;
+  // padding-top: 5px;
+  // padding-bottom: 50px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  clear: both;
 
   a {
     color: #555;
@@ -206,13 +207,10 @@ Draftee Individual Page
     text-align: center;
   }
 
-  .center {
-    background: transparent !important;
-  }
-
   // Main container
-  #masonry-container {
+  .center {
     margin-top: -35px;
+    background: transparent !important;
     // width: 960px;
     // margin: 0 auto;
     // clear: both;
@@ -224,13 +222,14 @@ Draftee Individual Page
     .box {
       background-color: white !important;
       width: 325px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #d3d3d3;
       float: left;
     }
     .twitter,
     .instagram {
-      border-width: 1px;
-      border-style: solid;
-      border-color: #d3d3d3;
+
     }
     .news { 
       display: flex;
@@ -238,9 +237,6 @@ Draftee Individual Page
       flex-direction: column;
       text-align: center;
       font-family: arial, sans-serif;
-      border-width: 1px;
-      border-style: solid;
-      border-color: #d3d3d3;
       height: 100px;
       font-size: 15px;
       text-decoration: none;
