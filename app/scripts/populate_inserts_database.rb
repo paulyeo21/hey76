@@ -85,7 +85,7 @@ class PopulateInsertsDatabase
             draftee.inserts.create!(content: news[:Title], url: news[:Url], date: news[:Date], content_id: news[:ID], type_of: "news")
           end
         end
-      rescue JSON::ParseError => error
+      rescue JSON::ParserError => error
         puts "Insufficient balance for Bing Search API requests: " + draftee[:name]
       end
     end
