@@ -70,7 +70,7 @@ class PopulateInsertsDatabase
               draftee.inserts.create!(content: embedded_instagram, url: instagram['link'], date: DateTime.strptime(instagram['created_time'],'%s'), content_id: instagram['id'], type_of: "instagram")
             end
           end
-        rescue OpenURI::HTTPError => ex
+        rescue OpenURI::HTTPError => error
           puts "Bad Request for draftee: " + draftee[:name]
         end
       end
@@ -78,10 +78,15 @@ class PopulateInsertsDatabase
       # Bing Search API:
       # 1. search news articles by draftee name
       # 2. store news article titles and content to db unless content id exists
-      bing_news.search(draftee[:name])[0][:News].each do |news|
-        unless Insert.exists?(content: news[:Title])
-          draftee.inserts.create!(content: news[:Title], url: news[:Url], date: news[:Date], content_id: news[:ID], type_of: "news")
+
+      begin 
+        bing_news.search(draftee[:name])[0][:News].each do |news|
+          unless Insert.exists?(content: news[:Title])
+            draftee.inserts.create!(content: news[:Title], url: news[:Url], date: news[:Date], content_id: news[:ID], type_of: "news")
+          end
         end
+      rescue JSON::ParseError => error
+        puts "Insufficient balance for Bing Search API requests: " + draftee[:name]
       end
     end
   end
