@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
+  root "welcome#index"
 
-  root            'draftees#home'
   get 'mosaic' => 'static_pages#mosaic'
-  post 'search' => 'draftees#search'
-  get 'suggestions.json' => 'draftees#json'
-  resources :draftees
+  resources :draftees, only: [:index, :show]
   resources :inserts, only: [:create, :destroy]
 
+  namespace :api, path: "", defaults: { format: "json" } do
+    namespace :v1 do
+      resources :draftees, only: [:index]
+    end
+  end
 end

@@ -2,21 +2,21 @@
 <html>
   <head>
     <title>Hey76</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/shim' %>
-    <%= favicon_link_tag 'favicon.ico' %>
+    <%= render "shared/shim" %>
+    <%= favicon_link_tag "favicon.ico" %>
   </head>
   
-  <body>
-    <%= render 'layouts/header' %>
+  <body class="hey76">
+    <%= render "layouts/header" %>
 
-    <div class="container">
+    <div class="main">
       <%= yield %>
-      
-      <%= render 'layouts/footer' %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
+
+    <%= render "layouts/footer" %>
   </body>
+
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </html>

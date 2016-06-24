@@ -1,10 +1,5 @@
-
-<div id="draftee_page">
-  <h1>
-    <%= @draftee.name %>
-    <%= image_link_to_media("twitter", @draftee.twitter) %>
-    <%= image_link_to_media("instagram", @draftee.instagram) %>
-  </h1>
+<div>
+  <h1 class="name"><%= @draftee.name %></h1>
 
   <% if @inserts %>
   <div class="center jumbotron">

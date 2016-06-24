@@ -1,0 +1,50 @@
+.main {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  .search-container {
+    text-align:center;
+
+    input {
+      width: 420px;
+      height: 30px;
+      padding: 8px 12px;
+      font-size: 24px;
+      line-height: 30px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      font-family: arial;
+    }
+  }
+}
+
+// Typeahead 
+.tt-menu {
+  width: 100%;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  text-align: left;
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: arial;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #0097cf;
+}

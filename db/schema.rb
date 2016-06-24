@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150905105945) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "draftees", force: :cascade do |t|
     t.string   "name"
     t.string   "twitter"
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150905105945) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "draftees", ["name"], name: "index_draftees_on_name", unique: true
+  add_index "draftees", ["name"], name: "index_draftees_on_name", unique: true, using: :btree
 
   create_table "inserts", force: :cascade do |t|
     t.text     "content"
@@ -34,8 +37,9 @@ ActiveRecord::Schema.define(version: 20150905105945) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "inserts", ["date"], name: "index_inserts_on_date"
-  add_index "inserts", ["draftee_id", "date"], name: "index_inserts_on_draftee_id_and_date"
-  add_index "inserts", ["draftee_id"], name: "index_inserts_on_draftee_id"
+  add_index "inserts", ["date"], name: "index_inserts_on_date", using: :btree
+  add_index "inserts", ["draftee_id", "date"], name: "index_inserts_on_draftee_id_and_date", using: :btree
+  add_index "inserts", ["draftee_id"], name: "index_inserts_on_draftee_id", using: :btree
 
+  add_foreign_key "inserts", "draftees"
 end
