@@ -1,19 +1,18 @@
 class Draftee < ActiveRecord::Base
-  has_many :inserts, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
-	before_validation {self.name = capitalize_name(self.name)}
-	validates :name, presence: true, length: {maximum: 50}, 
-									 # inclusion: {in: draft_candidates},
-									 uniqueness: {case_sensitive: false}
+	# before_validation {self.name = capitalize_name(self.name)}
+	validates :name, presence: true
+									 # uniqueness: {case_sensitive: false}
 
-  VALID_TWITTER_INSTAGRAM_HANDLE_REGEX = /\A@?[\w.]*\z/
-  before_validation {self.twitter = remove_at_symbol(self.twitter)}
-  validates :twitter, length: {maximum: 15},
-                      format: {with: VALID_TWITTER_INSTAGRAM_HANDLE_REGEX}
+  # VALID_TWITTER_INSTAGRAM_HANDLE_REGEX = /\A@?[\w.]*\z/
+  # before_validation {self.twitter = remove_at_symbol(self.twitter)}
+  # validates :twitter, length: {maximum: 15},
+                      # format: {with: VALID_TWITTER_INSTAGRAM_HANDLE_REGEX}
 
-  before_validation {self.instagram = remove_at_symbol(self.instagram)}
-  validates :instagram, length: {maximum: 30},
-                        format: {with: VALID_TWITTER_INSTAGRAM_HANDLE_REGEX}
+  # before_validation {self.instagram = remove_at_symbol(self.instagram)}
+  # validates :instagram, length: {maximum: 30},
+                        # format: {with: VALID_TWITTER_INSTAGRAM_HANDLE_REGEX}
 
   def capitalize_name name
     full_name = name.split(' ')

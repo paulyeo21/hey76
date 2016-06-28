@@ -1,27 +1,25 @@
-<div>
-  <h1 class="name"><%= @draftee.name %></h1>
+<%= react_component "Content", { name: @draftee.name, posts: @draftee.posts } %>
 
-  <% if @inserts %>
+<% if @inserts %>
   <div class="center jumbotron">
     <!-- <div id="masonry-container" class="transitions-enabled centered infinite-scroll clearfix masonry"> -->
-      <% @inserts.each do |insert| %>
-        <!-- if bing search -->
-        <% if insert.type_of == 'news' %>
-          <%= link_to insert.url do %>
-            <div class="box <%= insert.type_of %>">
-              <%= insert.content %>
-            </div>
-          <% end %>
-        <!-- if twitter/instagram -->
-        <% else %>      
+    <% @inserts.each do |insert| %>
+      <!-- if bing search -->
+      <% if insert.type_of == 'news' %>
+        <%= link_to insert.url do %>
           <div class="box <%= insert.type_of %>">
-            <%= raw(insert.content) %>
+            <%= insert.content %>
           </div>
-        
-        <!-- end if else -->
         <% end %>
+        <!-- if twitter/instagram -->
+      <% else %>      
+        <div class="box <%= insert.type_of %>">
+          <%= raw(insert.content) %>
+        </div>
+
+        <!-- end if else -->
       <% end %>
+    <% end %>
     <!-- </div> -->
   </div>
-  <% end %>
-</div>
+<% end %>

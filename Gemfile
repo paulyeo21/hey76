@@ -11,6 +11,7 @@ gem "twitter"
 gem "searchbing"
 gem "autoprefixer-rails"
 gem "font-awesome-rails"
+gem "react-rails"
 
 group :development, :test do
   gem "byebug"
