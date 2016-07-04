@@ -1,10 +1,11 @@
 .hey76 {
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
-  margin:0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .main {
   flex:1;
+  padding: 0 30px 20px 30px;
 }

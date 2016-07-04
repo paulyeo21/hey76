@@ -8,10 +8,10 @@ gem "turbolinks"
 gem "pg"
 
 gem "twitter"
-gem "searchbing"
 gem "autoprefixer-rails"
 gem "font-awesome-rails"
 gem "react-rails"
+gem "httparty"
 
 group :development, :test do
   gem "byebug"

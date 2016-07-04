@@ -3,23 +3,55 @@ var Content = React.createClass({
     return (
       <div>
         <h1 className="name">{ this.props.name }</h1>
-        <PostsContainer posts={ this.props.posts } />
+        <Container tweets={ this.props.tweets } bings={ this.props.bings } />
       </div>
     );
   }
 });
 
-var PostsContainer = React.createClass({
+var Container = React.createClass({
+  componentDidMount: function() {
+    // Render tweets
+    twttr.ready(function(twttr) {
+      var tweets = document.getElementsByClassName("tweet");
+      for (var i = 0; i < tweets.length; i++) {
+        twttr.widgets.createTweet(
+          tweets[i].id,
+          tweets[i],
+          {
+            conversation: "none",
+            width: "auto"
+          }
+        );
+      }
+    });
+  },
+
   render: function() {
-    var posts = this.props.posts.map(function(post) {
+    var tweets = this.props.tweets.map(function(tweet) {
       return (
-        <p>{ post.content_id }</p>
+        <div className="tweet" id={ tweet.t_id }></div>
       );
     });
 
+    var bings = this.props.bings.map(function(bing) {
+      return (
+        <a className="bingContainer" href={ bing.url } target="_blank" >
+          <div className="bing">
+            <div className="bingHead">
+              <img src={ bing.thumbnail } />
+              <h3 className="bingTitle">{ bing.title }</h3>
+            </div>
+            <p>{ bing.description }</p>
+          </div>
+        </a>
+      )
+    });
+
     return (
-      <div className="postsContainer">
-        { posts }
+      <div className="container">
+        { tweets }
+        { bings }
       </div>
     )
   }

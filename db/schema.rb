@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905105945) do
+ActiveRecord::Schema.define(version: 20160704075820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bings", force: :cascade do |t|
+    t.integer  "draftee_id"
+    t.datetime "date"
+    t.string   "title",       limit: 256
+    t.string   "description", limit: 512
+    t.string   "url",         limit: 512
+    t.string   "thumbnail",   limit: 512
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "bings", ["draftee_id"], name: "index_bings_on_draftee_id", using: :btree
 
   create_table "draftees", force: :cascade do |t|
     t.string   "name"
@@ -26,19 +39,16 @@ ActiveRecord::Schema.define(version: 20150905105945) do
 
   add_index "draftees", ["name"], name: "index_draftees_on_name", unique: true, using: :btree
 
-  create_table "posts", force: :cascade do |t|
-    t.text     "content"
+  create_table "tweets", force: :cascade do |t|
     t.integer  "draftee_id"
     t.datetime "date"
-    t.string   "type_of"
-    t.string   "content_id"
-    t.string   "url"
+    t.string   "t_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "posts", ["date"], name: "index_posts_on_date", using: :btree
-  add_index "posts", ["draftee_id"], name: "index_posts_on_draftee_id", using: :btree
+  add_index "tweets", ["draftee_id"], name: "index_tweets_on_draftee_id", using: :btree
 
-  add_foreign_key "posts", "draftees"
+  add_foreign_key "bings", "draftees"
+  add_foreign_key "tweets", "draftees"
 end

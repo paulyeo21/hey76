@@ -1,7 +1,6 @@
 class DrafteesController < ApplicationController
   def show
     @draftee = Draftee.find(params[:id])
-    # @inserts = Insert.where(draftee_id: params[:id])
   end
 
   private
