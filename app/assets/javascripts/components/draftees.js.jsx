@@ -10,23 +10,6 @@ var Content = React.createClass({
 });
 
 var Container = React.createClass({
-  componentDidMount: function() {
-    // Render tweets
-    twttr.ready(function(twttr) {
-      var tweets = document.getElementsByClassName("tweet");
-      for (var i = 0; i < tweets.length; i++) {
-        twttr.widgets.createTweet(
-          tweets[i].id,
-          tweets[i],
-          {
-            conversation: "none",
-            width: "auto"
-          }
-        );
-      }
-    });
-  },
-
   render: function() {
     var tweet = function(obj) {
       return(

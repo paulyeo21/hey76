@@ -1,8 +1,8 @@
 require "bing_api"
 
-namespace :posts do
+namespace :bings do
   desc "get bing news articles"
-  task get_bings: :environment do
+  task get: :environment do
     draftees = Draftee.all
     bing = BingAPI.new
 

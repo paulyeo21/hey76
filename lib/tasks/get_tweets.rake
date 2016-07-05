@@ -1,8 +1,8 @@
 require "twitter_api"
 
-namespace :posts do
+namespace :tweets do
   desc "get user tweet ids"
-  task get_tweets: :environment do
+  task get: :environment do
     draftees = Draftee.all
     twitter = TwitterAPI.new
 
