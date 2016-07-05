@@ -10,6 +10,12 @@ var Content = React.createClass({
 });
 
 var Container = React.createClass({
+  componentDidMount: function() {
+    // twttr.ready(function(twttr) {
+    //   twttr.widgets.load();
+    // });
+  },
+
   render: function() {
     var tweet = function(obj) {
       return(

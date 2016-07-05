@@ -8,6 +8,7 @@
   column-gap: 0;
   max-width: 900px;
   margin: auto;
+  height:100%;
 
   div {
     margin: 10px 5px;
@@ -17,6 +18,8 @@
 
     > * {
       margin: 0 !important;
+      overflow: hidden;
+      break-inside: avoid;
     }
   }
 

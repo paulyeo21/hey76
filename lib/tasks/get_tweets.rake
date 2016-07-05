@@ -13,7 +13,7 @@ task tweets: :environment do
     end
     tweets = twitter.get_user_timeline(draftee.twitter, options)
 
-    tweets.reverse.each do |t|
+    tweets.sort_by {|t| t.attrs[:id_str]}.each do |t|
       draftee.tweets.create(t_id: t.attrs[:id_str], date: t.created_at)
     end
   end
