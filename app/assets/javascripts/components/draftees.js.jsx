@@ -3,7 +3,7 @@ var Content = React.createClass({
     return (
       <div>
         <h1 className="name">{ this.props.name }</h1>
-        <Container tweets={ this.props.tweets } bings={ this.props.bings } />
+        <Container aggregate={ this.props.aggregate } />
       </div>
     );
   }
@@ -28,30 +28,37 @@ var Container = React.createClass({
   },
 
   render: function() {
-    var tweets = this.props.tweets.map(function(tweet) {
-      return (
-        <div className="tweet" id={ tweet.t_id }></div>
-      );
-    });
+    var tweet = function(obj) {
+      return(
+        <div className="tweet" id= { obj.t_id }></div>
+      )
+    };
 
-    var bings = this.props.bings.map(function(bing) {
-      return (
-        <a className="bingContainer" href={ bing.url } target="_blank" >
+    var bing = function(obj) {
+      return(
+        <a className="bingContainer" href={ obj.url } target="_blank" >
           <div className="bing">
             <div className="bingHead">
-              <img src={ bing.thumbnail } />
-              <h3 className="bingTitle">{ bing.title }</h3>
+              <img src={ obj.thumbnail } />
+              <h3 className="bingTitle">{ obj.title }</h3>
             </div>
-            <p>{ bing.description }</p>
+            <p>{ obj.description }</p>
           </div>
         </a>
       )
+    };
+
+    var display_tweets_and_bings = this.props.aggregate.map(function(media) {
+      if (media.title) {
+        return bing(media);
+      } else {
+        return tweet(media);
+      }
     });
 
     return (
       <div className="container">
-        { tweets }
-        { bings }
+        { display_tweets_and_bings }
       </div>
     )
   }
