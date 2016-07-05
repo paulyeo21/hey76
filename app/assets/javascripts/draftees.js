@@ -1,8 +1,7 @@
 var draftees = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.whitespace,
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace("name"),
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  identify: function(obj) { return obj.name; },
-  remote: "../v1/draftees"
+  prefetch: "../v1/draftees.json"
 })
 
 $("#search-draftee").typeahead({
