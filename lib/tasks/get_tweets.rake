@@ -7,14 +7,14 @@ namespace :tweets do
     twitter = TwitterAPI.new
 
     draftees.each do |draftee|
-      if draftee.tweets.first
-        options = { since_id: draftee.tweets.first.t_id }
+      if draftee.tweets.present?
+        options = { since_id: draftee.tweets.last.t_id }
       else
         options = { count: 10 }
       end
       tweets = twitter.get_user_timeline(draftee.twitter, options)
 
-      tweets.each do |t|
+      tweets.reverse.each do |t|
         draftee.tweets.create(t_id: t.attrs[:id_str], date: t.created_at)
       end
     end
