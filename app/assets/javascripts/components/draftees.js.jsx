@@ -11,9 +11,9 @@ var Content = React.createClass({
 
 var Container = React.createClass({
   componentDidMount: function() {
-    // twttr.ready(function(twttr) {
-    //   twttr.widgets.load();
-    // });
+    twttr.ready(function(twttr) {
+      twttr.widgets.load();
+    });
   },
 
   render: function() {
