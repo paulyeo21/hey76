@@ -18,17 +18,3 @@ $("#search-draftee").typeahead({
 .on("typeahead:selected", function(env, suggestion){
   window.location.href = "/draftees/" + suggestion.id;
 });
-
-twttr.ready(function(twttr) {
-  var tweets = document.getElementsByClassName("tweet");
-  for (var i = 0; i < tweets.length; i++) {
-    twttr.widgets.createTweet(
-      tweets[i].id,
-      tweets[i],
-      {
-        conversation: "none",
-        width: "auto"
-      }
-    );
-  }
-});

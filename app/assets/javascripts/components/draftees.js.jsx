@@ -12,7 +12,17 @@ var Content = React.createClass({
 var Container = React.createClass({
   componentDidMount: function() {
     twttr.ready(function(twttr) {
-      twttr.widgets.load();
+      var tweets = document.getElementsByClassName("tweet");
+      for (var i = 0; i < tweets.length; i++) {
+        twttr.widgets.createTweet(
+          tweets[i].id,
+          tweets[i],
+          {
+            conversation: "none",
+            width: "auto"
+          }
+        );
+      }
     });
   },
 
