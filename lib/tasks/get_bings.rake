@@ -3,19 +3,23 @@ require "bing_api"
 namespace :posts do
   desc "get bing news articles"
   task get_bings: :environment do
-    d = Draftee.find(1)
-    bings = BingAPI.new.get_bings(d.name)
-    news = bings["value"]
+    draftees = Draftee.all
+    bing = BingAPI.new
 
-    news.each do |n|
-      bing = d.bings.new(
-        title: n["name"], 
-        url: n["url"], 
-        description: n["description"], 
-        date: n["datePublished"]
-      )
-      bing.thumbnail = n["image"]["thumbnail"]["contentUrl"] if n["image"]
-      bing.save
+    draftees.each do |draftee|
+      bings = bing.get_bings(draftee.name)
+      articles = bings["value"]
+
+      articles.each do |article|
+        b = draftee.bings.new(
+          title: article["name"], 
+          url: article["url"], 
+          description: article["description"], 
+          date: article["datePublished"]
+        )
+        b.thumbnail = article["image"]["thumbnail"]["contentUrl"] if article["image"]
+        b.save
+      end
     end
   end
 end

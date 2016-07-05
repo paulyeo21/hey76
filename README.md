@@ -10,7 +10,9 @@ draft candidates = ["Ben Simmons", "Brandon Ingram", "Jaylen Brown", "Dragan Ben
 Test Driven Development methodology was used during the development of hey76. The testing framework used is RSpec.
 
 ## Content
-Bing, Twitter, and Instagram APIs made the content on the draft candidate pages' possible. New content is pulled in an interval to show the most updated content on draft candidates.
+Bing, Twitter, and Instagram APIs made the content on the draft candidate pages' possible. New content is pulled in an interval to show the most updated content on draft candidates. To make this process efficient specific tactics were used for the separate APIs. Twitter, for instance, was efficient by following the guidelines here: https://dev.twitter.com/rest/public/timelines.
+
+*Instagram has been deprecated from hey76 since their API policy change*
 
 ## Deployment
 hey76 is running on Heroku.

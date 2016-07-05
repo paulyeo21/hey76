@@ -10,8 +10,8 @@ class TwitterAPI
     end
   end
 
-  def get_user_timeline username
-    @client.user_timeline(username)
+  def get_user_timeline username, options={}
+    @client.user_timeline(username, options)
   end
 
   def get_tweet id
