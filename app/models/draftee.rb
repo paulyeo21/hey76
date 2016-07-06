@@ -5,7 +5,8 @@ class Draftee < ActiveRecord::Base
 
   def self.class_of_16
     draftees.each do |draftee|
-      Draftee.create(name: draftee[:name], twitter: draftee[:twitter])
+      d = Draftee.new(name: draftee[:name], twitter: draftee[:twitter])
+      d.save
     end
   end
 
@@ -16,7 +17,12 @@ class Draftee < ActiveRecord::Base
       { name: "Brandon Ingram", twitter: "B_Ingram13" },
       { name: "Ben Simmons", twitter: "BenSimmons25" },
       { name: "Jaylen Brown", twitter: "FCHWPO" },
-      { name: "Buddy Hield", twitter: "buddyhield" }
+      { name: "Buddy Hield", twitter: "buddyhield" },
+      { name: "Dragon Bender", twitter: "DBender03" },
+      { name: "Kris Dunn", twitter: "KrisDunn3" },
+      { name: "Jamal Murray", twitter: "BeMore27" },
+      { name: "Denzel Valentine", twitter: "denzelvalentine" },
+      { name: "Thon Maker", twitter: "ThonMaker14" }
     ]
   end
 end
