@@ -6,11 +6,9 @@ hey76 is a media aggregator on NBA draft candidates built on Ruby on Rails. The 
 ```ruby
 draft candidates = ["Ben Simmons", "Brandon Ingram", "Jaylen Brown", "Dragan Bender", "Kris Dunn", "Buddy Hield", "Jamal Murray", "Thon Maker", "Denzel Valentine"] 
 ```
-## Testing
-Test Driven Development methodology was used during the development of hey76. The testing framework used is RSpec.
 
 ## Content
-Bing, Twitter, and Instagram APIs made the content on the draft candidate pages' possible. New content is pulled in an interval to show the most updated content on draft candidates. To make this process efficient specific tactics were used for the separate APIs. Twitter, for instance, was efficient by following the guidelines here: https://dev.twitter.com/rest/public/timelines.
+Bing, Twitter, and Instagram APIs make up the content on hey76.
 
 *Instagram has been deprecated from hey76 since their API policy change*
 
