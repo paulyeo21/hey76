@@ -39,7 +39,8 @@
         display: flex;
 
         img {
-          height: 65px;
+          max-height: 65px;
+          min-width: 65px;
           margin-right: 10px;
         }
 
